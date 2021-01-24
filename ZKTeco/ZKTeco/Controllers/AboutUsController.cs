@@ -86,7 +86,12 @@ namespace ZKTeco.Controllers
                 // Delete Old Image
                 var fullPath = _hostingEnvironment.WebRootPath + oldaboutus.Photourl;
                 if (System.IO.File.Exists(fullPath))
+                {
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                     System.IO.File.Delete(fullPath);
+                }
+                    
                 // Add New Image
                 dto.photourl = "/images/aboutus/" + uniqname;
             }

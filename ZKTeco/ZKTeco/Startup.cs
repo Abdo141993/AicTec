@@ -55,8 +55,6 @@ namespace WebApplication1
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             #endregion
 
-            // My Commint Test Here
-
             services.AddControllersWithViews();
         }
 
