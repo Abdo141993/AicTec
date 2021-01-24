@@ -1,0 +1,71 @@
+﻿@model ZKTeco.Dtos.Category.FullCategoryDto
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card mx-md-4 mx-2">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2"><i class="icon-drop"></i> View Category</div>
+                    <div class="p-2"></div>
+                    <div><a asp-controller="categories" asp-action="Index">Back to List</a></div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h4>Category</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.CategoryNameArabic)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.CategoryNameArabic)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.CategoryNameEnglish)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.CategoryNameEnglish)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.CreatedDate)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.CreatedDate)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.ParentCategory)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.ParentCategory.CategoryNameEnglish)
+                    </dd>
+                </dl>
+            </div>
+            <div>
+                <a asp-controller="categories" asp-action="Edit" class="btn btn-primary ml-3" asp-route-id="@Model.Id">Edit</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{
+
+    ViewData["Direction"] =
+        @"<li class='breadcrumb-item'>
+<a href='/Categories'>Categories</a>
+</li>
+<li class='breadcrumb-item'>
+View Category
+</li>
+";
+}
